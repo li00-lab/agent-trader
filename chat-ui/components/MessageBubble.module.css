@@ -1,0 +1,66 @@
+.userRow,
+.assistantRow {
+  display: flex;
+}
+.userRow {
+  justify-content: flex-end;
+}
+.assistantRow {
+  justify-content: flex-start;
+}
+
+.userBubble,
+.assistantBubble {
+  max-width: min(80%, 760px);
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+}
+
+.userBubble {
+  background: #1c2740;
+  color: var(--text);
+}
+
+.assistantBubble {
+  background: #d1d5db; /* light grey */
+  color: white; /* text white */
+  position: relative;
+  padding-top: 24px; /* room for badge */
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.botBadge {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 11px;
+  color: white;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  color: var(--text);
+}
+
+/* Optional: better code blocks if you render markdown later */
+.content code {
+  background: #0d1320;
+  border: 1px solid #24304a;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95em;
+}

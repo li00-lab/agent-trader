@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --bg: #000000; /* black main background */
+  --panel: #000000; /* black chat area */
+  --panel-2: #0a0a0a; /* slightly lighter black for sidebar */
+  --text: #e9ecf1;
+  --muted: #9aa3b2;
+  --accent: #6ea8fe;
+  --accent-strong: #8db5ff;
+  --border: #1f1f1f;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial;
+}
+
+html {
+  font-family: "Quicksand", sans-serif;
+}

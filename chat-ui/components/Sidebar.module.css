@@ -1,0 +1,116 @@
+.sidebar {
+  background: darkgray; /* darker */
+  border-right: 1px solid var(--border);
+  padding: 14px 12px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  min-width: 280px;
+}
+
+.sidebarCollapsed {
+  background: white; /* darker */
+  border-right: 1px solid var(--border);
+  padding: 12px 8px;
+  width: 56px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+}
+
+.collapseBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.collapseBtn:hover {
+  background: #20263a;
+}
+
+.newChatBtn {
+  background: #d1d5db; /* light grey */
+  border: 1px solid var(--border);
+  color: white; /* text white */
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.newChatBtn:hover {
+  background: #c5c9d0; /* slightly darker grey on hover */
+  border-color: #b0b4bb;
+}
+
+.sectionTitle {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chatList {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  overflow: auto;
+}
+
+.chatItem {
+  padding: 10px 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  background: #141a28;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.chatItem:hover {
+  background: #0f1422;
+  border-color: #2b3754;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  color: var(--muted);
+  font-weight: 700;
+}
+.name {
+  font-size: 14px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
