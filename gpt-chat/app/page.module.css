@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Ordered list inside main */
+.main ol {
+  font-size: 14px;
+  line-height: 1.6;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code styling */
+.main code {
+  background: #2d2d2b;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.pageContainer {
+  display: flex;
+  height: 100vh; /* full viewport height */
+}

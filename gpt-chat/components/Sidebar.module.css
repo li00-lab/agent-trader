@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+}
+
+.sidebar {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebarCollapsed {
+  width: 60px; /* collapsed width */
+  padding: 20px 10px;
+}
+
+.sidebarExpanded {
+  width: 200px; /* expanded width */
+  padding: 20px;
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.menuItem {
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.toggleButton {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
