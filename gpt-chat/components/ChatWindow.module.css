@@ -1,11 +1,13 @@
 .chatWindow {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* full height */
-  flex: 1; /* take all space beside sidebar */
+  height: 100vh;
+  flex: 1;
 }
 
 .chatArea {
-  flex: 1; /* empty space for now */
-  background-color: #222; /* placeholder */
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: #222;
 }
