@@ -30,7 +30,7 @@ export default function ChatWindow() {
         body: JSON.stringify({
           app_name: "crm_data_agent",
           user_id: "user@ai",
-          session_id: "7a2521656a8e45419c1dae20982893a7", // ✅ match your backend
+          session_id: "7a2521656a8e45419c1dae20982893a7",
           streaming: true,
           new_message: {
             role: "user",
@@ -56,24 +56,27 @@ export default function ChatWindow() {
         for (const event of events) {
           if (event.startsWith("data:")) {
             const dataStr = event.replace("data:", "").trim();
-
-            if (dataStr === "[DONE]") continue;
+            if (!dataStr || dataStr === "[DONE]") continue;
 
             try {
               const parsed = JSON.parse(dataStr);
+              console.log("🔵 SSE event:", parsed);
 
-              const parts = parsed?.candidates?.[0]?.content?.parts || [];
-              const delta = parts
-                .map((p: any) => {
-                  if (p.text) return p.text; // normal text
-                  // skip metadata like thought_signature
-                  return "";
-                })
-                .join("");
+              // Try extracting assistant text
+              let delta = "";
+
+              if (parsed.content?.parts) {
+                delta += parsed.content.parts
+                  .map((p: any) => p.text || "")
+                  .join("");
+              }
+
+              if (!delta && parsed.actions?.stateDelta?.output) {
+                delta = parsed.actions.stateDelta.output;
+              }
 
               if (delta) {
                 assistantMessage += delta;
-
                 setMessages((prev) => {
                   const updated = [...prev];
                   updated[updated.length - 1] = {
@@ -84,7 +87,7 @@ export default function ChatWindow() {
                 });
               }
             } catch (err) {
-              console.error("Failed to parse SSE event:", dataStr, err);
+              console.error("❌ Failed to parse SSE event:", dataStr, err);
             }
           }
         }
@@ -96,17 +99,13 @@ export default function ChatWindow() {
 
   return (
     <div className={styles.chatWindow}>
-      {/* Chat area */}
       <div className={styles.chatArea}>
         {messages.map((m, i) => (
           <MessageBubble key={i} role={m.role} content={m.content} />
         ))}
       </div>
 
-      {/* Chat input */}
       <ChatInput onSend={handleSend} />
-
-      {/* Footer */}
       <Footer />
     </div>
   );
