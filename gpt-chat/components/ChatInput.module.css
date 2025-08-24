@@ -1,28 +1,105 @@
-.container {
-  display: flex;
-  gap: 8px;
-  padding: 12px;
-  border-top: 1px solid #333;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: end;
+
+  width: min(900px, 100%);
+  margin: 0 auto;
 }
 
 .input {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background: #181817;
-  color: #e5e5e1;
+  min-height: 44px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f1421;
+  color: var(--text);
+  outline: none;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.input:empty:before {
+  content: attr(data-placeholder);
+  pointer-events: none;
+  color: #6f7b8f;
 }
 
 .send {
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid #3b4a70;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: #0e1422;
+  font-weight: 700;
   cursor: pointer;
 }
 
+/* Slash command chip (light blue text on grey bg) */
+.chip {
+  display: inline-block;
+  background: #e5e7eb; /* light grey */
+  color: #3b82f6; /* light blue text */
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 2px 8px;
+  margin-right: 6px;
+}
+
+/* Suggestion menu */
+.menu {
+  position: absolute;
+  bottom: 58px; /* sits above the input */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 40px));
+  background: #0c1220;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  padding: 6px;
+  z-index: 20;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text);
+}
+.item:hover {
+  background: #0a1020;
+}
+.active {
+  background: #0a1020;
+  outline: 1px solid #263453;
+}
+.itemCmd {
+  font-weight: 600;
+}
+.itemHint {
+  color: #98a4b8;
+  font-size: 12px;
+}
+
+.send {
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(180deg, #3b82f6, #2563eb); /* blue gradient */
+  color: white; /* text white */
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: filter 0.15s ease;
+}
+
 .send:hover {
-  background: #666;
+  filter: brightness(1.1);
 }
