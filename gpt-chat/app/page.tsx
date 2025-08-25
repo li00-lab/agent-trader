@@ -6,7 +6,11 @@ export default function Home() {
   return (
     <div className={styles.pageContainer}>
       <Sidebar />
-      <ChatWindow />
+
+      {/* Right column */}
+      <main className={styles.main} style={{ minWidth: 0 }}>
+        <ChatWindow />
+      </main>
     </div>
   );
 }

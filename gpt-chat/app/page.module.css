@@ -1,32 +1,44 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1.25rem; /* slightly tighter spacing */
+  padding: 1.5rem 2rem; /* comfortable padding */
+  overflow-y: auto; /* scroll if content exceeds */
+  color: var(--text); /* rely on your theme variable */
+  background: var(--bg);
 }
 
 /* Ordered list inside main */
 .main ol {
-  font-size: 14px;
+  font-size: 0.9rem;
   line-height: 1.6;
   list-style-position: inside;
   margin: 0;
   padding: 0;
+  color: var(--muted);
 }
 
 .main li:not(:last-of-type) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 /* Inline code styling */
 .main code {
-  background: #2d2d2b;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+  background: #1f1f1f;
+  color: #e5e5e5;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #333;
 }
 
+/* Container with sidebar + chat */
 .pageContainer {
-  display: flex;
-  height: 100vh; /* full viewport height */
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr); /* sidebar fixed, chat flexible */
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
 }
